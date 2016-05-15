@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\controllers\actions\ActionCardsCreate;
 use app\controllers\actions\ActionCardsView;
+use app\controllers\actions\ActionDelete;
 use app\controllers\actions\ActionUpdate;
 use app\controllers\actions\ActionView;
 use yii;
@@ -18,7 +19,8 @@ class SiteController extends Controller
     use ActionCardsView,
         ActionCardsCreate,
         ActionView,
-        ActionUpdate;
+        ActionUpdate,
+        ActionDelete;
     
     public function behaviors()
     {

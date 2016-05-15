@@ -17,6 +17,7 @@ if(isset($success)){
     <?= $form->field($card, 'number')->label('Номер') ?>
     <?= $form->field($card, 'create_date')->label('Дата выпуска') ?>
     <?= $form->field($card, 'expiration_date')->label('Дата окончания активности'); ?>
+    <?= $form->field($card, 'amount')->label('Сумма покупок по карте'); ?>
 <?php
 echo $form->field($card, 'status')
     ->dropDownList([
