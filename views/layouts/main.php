@@ -22,12 +22,14 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+<div id="overlay" style="position: fixed;padding-top: 300px; width: 100%;height: 100%;opacity: 0.5; text-align: center;font-size: 32px; color:black; background-color: #cccccc; display: none">
+    Пожалуйста подождите,идет создание карт.<br/> Операция может занять несколько минут</div>
 <?php $this->beginBody() ?>
 
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Карты',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -36,21 +38,11 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+            ['label' => 'На главную', 'url' => ['/site/index']],
+            ['label' => 'Просмотр карт', 'url' => ['/site/cardsview']],
+            ['label' => 'Генератор карт', 'url' => ['/site/generator']],
+            ['label' => 'Создать карту', 'url' => ['/site/cardscreate']],
+            ['label' => 'Просмотр покупок', 'url' => ['/site/purchasesview']],
         ],
     ]);
     NavBar::end();

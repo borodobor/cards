@@ -14,12 +14,12 @@ class m160515_055740_create_cards_table extends Migration
     {
         $this->createTable('cards', [
             'id' => $this->primaryKey(),
-            'series'=>$this->string(3),
-            'number'=>$this->integer(6),
-            'create_date'=>$this->dateTime(),
-            'expiration_date'=>$this->dateTime(),
-            'amount'=>$this->double(),
-            'status'=>$this->smallInteger()
+            'series'=>$this->string(3)->notNull(),
+            'number'=>$this->integer(6)->notNull(),
+            'create_date'=>$this->dateTime()->notNull(),
+            'expiration_date'=>$this->dateTime()->notNull(),
+            'amount'=>$this->double()->notNull(),
+            'status'=>$this->smallInteger()->notNull()
         ]);
 
         $this->createIndex('number','cards',['series','number'],true);
