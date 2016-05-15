@@ -4,8 +4,9 @@ namespace app\controllers;
 
 use app\controllers\actions\ActionCardsCreate;
 use app\controllers\actions\ActionCardsView;
+use app\controllers\actions\ActionUpdate;
 use app\controllers\actions\ActionView;
-use Yii;
+use yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -16,7 +17,8 @@ class SiteController extends Controller
 {
     use ActionCardsView,
         ActionCardsCreate,
-        ActionView;
+        ActionView,
+        ActionUpdate;
     
     public function behaviors()
     {
