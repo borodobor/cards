@@ -6,6 +6,7 @@ use \dosamigos\datetimepicker\DateTimePicker;
 <div style="border: 1px solid #cccccc;padding: 15px;margin-bottom: 30px">
     Поиск:<br/>
     <form action="/site/search" method="post">
+        <input type="hidden" name="_csrf" value="<?=Yii::$app->getRequest()->getCsrfToken()?>">
         <label class="control-label">
             Серия: <input type="text" name="series" class="form-control"/>
         </label>
@@ -17,7 +18,7 @@ use \dosamigos\datetimepicker\DateTimePicker;
             <?= DateTimePicker::widget([
                 'language' => 'ru',
                 'size' => 'ms',
-                'name' => 'name',
+                'name' => 'create',
                 'clientOptions' => [
                     'autoclose' => true,
                     'format' => 'yyyy-mm-dd HH:ii:00 P',
@@ -30,7 +31,7 @@ use \dosamigos\datetimepicker\DateTimePicker;
             <?= DateTimePicker::widget([
                 'language' => 'ru',
                 'size' => 'ms',
-                'name' => 'name',
+                'name' => 'created',
                 'clientOptions' => [
                     'autoclose' => true,
                     'format' => 'yyyy-mm-dd HH:ii:00 P',
@@ -43,7 +44,7 @@ use \dosamigos\datetimepicker\DateTimePicker;
             <?= DateTimePicker::widget([
                 'language' => 'ru',
                 'size' => 'ms',
-                'name' => 'name',
+                'name' => 'expire',
                 'clientOptions' => [
                     'autoclose' => true,
                     'format' => 'yyyy-mm-dd HH:ii:00 P',
@@ -56,7 +57,7 @@ use \dosamigos\datetimepicker\DateTimePicker;
             <?= DateTimePicker::widget([
                 'language' => 'ru',
                 'size' => 'ms',
-                'name' => 'name',
+                'name' => 'expired',
                 'clientOptions' => [
                     'autoclose' => true,
                     'format' => 'yyyy-mm-dd HH:ii:00 P',
@@ -65,7 +66,7 @@ use \dosamigos\datetimepicker\DateTimePicker;
             ]);?>
         </label><br/>
         <label class="control-label">Статус
-            <select class="form-control">
+            <select class="form-control" name="statuss">
                 <option></option>
                 <option>Неактивна</option>
                 <option>Активна</option>
