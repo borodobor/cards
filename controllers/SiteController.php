@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\controllers\actions\ActionCardsCreate;
 use app\controllers\actions\ActionCardsView;
+use app\controllers\actions\ActionView;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -14,7 +15,8 @@ use app\models\ContactForm;
 class SiteController extends Controller
 {
     use ActionCardsView,
-        ActionCardsCreate;
+        ActionCardsCreate,
+        ActionView;
     
     public function behaviors()
     {
