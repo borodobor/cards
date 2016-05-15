@@ -6,8 +6,8 @@ use app\models\Cards;
 
 trait ActionCardsCreate{
     public function actionCardscreate(){
-        if(yii::$app->request->post()) {
-            $post = yii::$app->request->post();
+        if(Yii::$app->request->post()) {
+            $post = Yii::$app->request->post();
             switch ($post['Cards']['expiration_date']){
                 case 1: $period=1;break;
                 case 2: $period=6;break;
@@ -17,6 +17,11 @@ trait ActionCardsCreate{
             $success=0;
             $series=$post['Cards']['series'];
             $number=$post['Cards']['number'];
+            if(Cards::find()->where(['series' => $series] and ['number'=>$number])->exists()){
+                $success=2;
+                $card=new Cards();
+                return $this->render('cardscreate', ['card' => $card, 'success' => $success]);
+            }
             if($post['Cards']['status']==1) {
                 $status=1;
             }else $status=0;
