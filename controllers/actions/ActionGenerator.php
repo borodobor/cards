@@ -16,12 +16,28 @@ trait ActionGenerator
         }else{
             $series=Html::encode($data['series']);
             $num=(integer)$data['num'];
+            // проверяем есть ли эта серия, если есть, берем максимальный номер в ней
+            if (Cards::find()->where(['series' => $series])->exists()) {
+                $ser = Cards::find()->where("`series`=$series")->orderBy(['number' => SORT_DESC])->all();
+                $max = (integer)$ser[0]->number;
+                $max++;
+            }
+            else{
+                $max=0;
+            }
             $period=(integer)$data['period'];
-            if($num>999999){
-                echo 'Количество не может превышать 999999';die();
+            // за раз не больше тысячи
+            if($num>1000){
+                echo 'Количество не может превышать 1000';die();
             }
             $success=1;
-            for($i=0;$i<$num;$i++){
+            $num=$num+$max;
+            // проверка на максимально возможное значение
+            if($num>999999){
+                $success=999999-$max;
+                return $this->render('generator',['success'=>$success]);
+            }
+            for($i=$max;$i<$num;$i++){
                 $card=new Cards();
                 $card->series = $series;
                 $card->number = $i;
