@@ -10,7 +10,7 @@ use dosamigos\datetimepicker\DateTimePicker;
 Серия: <input type="text" name="series" class="form-control"/>
         </label>
         <label class="control-label">
-Номер: <input type="text" name="number" class="form-control"/>
+Номер: <input type="number" name="number"  min="1" max="999999" class="form-control"/>
         </label><br/>
         <label class="control-label" style="width: 35%; ">
     Выпущена

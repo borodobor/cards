@@ -22,6 +22,8 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
+<div id="overlay" style="position: fixed;padding-top: 300px; width: 100%;height: 100%;opacity: 0.5; text-align: center;font-size: 32px; color:black; background-color: #cccccc; display: none">
+    Пожалуйста подождите,идет создание карт.<br/> Операция может занять несколько минут</div>
 <?php $this->beginBody() ?>
 
 <div class="wrap">

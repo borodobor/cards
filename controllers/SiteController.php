@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\controllers\actions\ActionCardsCreate;
 use app\controllers\actions\ActionCardsView;
 use app\controllers\actions\ActionDelete;
+use app\controllers\actions\ActionGenerator;
 use app\controllers\actions\ActionSearch;
 use app\controllers\actions\ActionUpdate;
 use app\controllers\actions\ActionView;
@@ -19,6 +20,7 @@ class SiteController extends Controller
 {
     use ActionCardsView,
         ActionCardsCreate,
+        ActionGenerator,
         ActionView,
         ActionUpdate,
         ActionSearch,
