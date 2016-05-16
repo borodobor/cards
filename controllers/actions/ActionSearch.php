@@ -26,7 +26,7 @@ trait ActionSearch
             default:$status='';
         }
         // формируем where из параметров поиска
-        if($series!='') $where.=" and `series`=$series";
+        if($series!='') $where.=" and `series`='$series'";
         if($number!='') $where.=" and `number`=$number";
         if($create!='') $where.=" and `create_date`>'$create'";
         if($created!='') $where.=" and `create_date`<'$created'";

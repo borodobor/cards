@@ -6,9 +6,9 @@ $this->title = 'My Yii Application';
 ?>
 <div style="width: 50%;float: left;">
         <div style="margin-bottom: 30px">
-        <a href="generator.php">Генератор карт</a><br/>
-        <a href="cardscreate.php">Создать одну карту</a><br/>
-        <a href="cardsview.php">Просмотр всех карт, поиск по ним</a><br/>
+        <a href="/site/generator">Генератор карт</a><br/>
+        <a href="/site/cardscreate">Создать одну карту</a><br/>
+        <a href="/site/cardsview">Просмотр всех карт, поиск по ним</a><br/>
     </div>
     <div>
         Просмотр информации по карте:
@@ -40,6 +40,6 @@ $this->title = 'My Yii Application';
         <label class="control-label">
             Стоимость покупки <input type="number" name="price"  min="1" class="form-control"/>
         </label><br/>
-        <input class="btn btn-primary" type="submit" value="Искать" style="">
+        <input class="btn btn-primary" type="submit" value="Купить" style="">
     </form>
 </div>

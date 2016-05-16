@@ -49,8 +49,8 @@ class Cards extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'series' => 'Серия',
-            'number' => 'Номер',
+            'series' => 'Серия карты',
+            'number' => 'Номер карты',
             'create_date' => 'Создана',
             'expiration_date' => 'Действительна до',
             'amount' => 'Сумма',

@@ -7,6 +7,7 @@ use app\controllers\actions\ActionCardsView;
 use app\controllers\actions\ActionDelete;
 use app\controllers\actions\ActionGenerator;
 use app\controllers\actions\ActionPurchase;
+use app\controllers\actions\ActionPurchasesView;
 use app\controllers\actions\ActionSearch;
 use app\controllers\actions\ActionUpdate;
 use app\controllers\actions\ActionView;
@@ -24,6 +25,7 @@ class SiteController extends Controller
         ActionGenerator,
         ActionView,
         ActionUpdate,
+        ActionPurchasesView,
         ActionSearch,
         ActionPurchase,
         ActionDelete;

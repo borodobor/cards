@@ -29,6 +29,6 @@ if(isset($success)) {
         <label class="control-label">
 Стоимость покупки <input type="number" name="price"  min="1" class="form-control"/>
         </label><br/>
-        <input class="btn btn-primary" type="submit" value="Искать" style="">
+        <input class="btn btn-primary" type="submit" value="Купить" style="">
     </form>
 </div>

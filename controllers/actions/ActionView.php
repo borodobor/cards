@@ -32,7 +32,7 @@ trait ActionView{
             $purchases=new ActiveDataProvider([
                 'query' => Purchases::find('*')->where(['card_id'=>$id]),
                 'pagination' => [
-                    'pageSize' => 20,
+                    'pageSize' => 50,
                 ],
             ]);
             return $this->render('view',['purchases'=>$purchases,'card'=>$card,'id'=>$id]);
