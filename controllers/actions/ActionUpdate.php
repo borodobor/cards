@@ -30,7 +30,7 @@ trait ActionUpdate
                 $success=0;
                 $card->load($post);
                 // проверка на просроченность карты
-                if($card->expiration_date>date("Y-m-d H:i:s")){
+                if($card->expiration_date<date("Y-m-d H:i:s")){
                     $card->status=2;
                 }
                 if($card->save()){

@@ -20,7 +20,7 @@ trait ActionPurchase
             if(Cards::find()->where("`series`='$series' and `number`=$number")->exists()) {
                 $result = Cards::find()->where("`series`='$series' and `number`=$number")->one();
                 // Проверка на просроченность карты
-                if($result->expiration_date>date("Y-m-d H:i:s")){
+                if($result->expiration_date<date("Y-m-d H:i:s")){
                     $result->status=2;
                     $result->save();
                 }
