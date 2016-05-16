@@ -19,6 +19,11 @@ trait ActionPurchase
             $number=(integer)$post['number'];
             if(Cards::find()->where("`series`='$series' and `number`=$number")->exists()) {
                 $result = Cards::find()->where("`series`='$series' and `number`=$number")->one();
+                // Проверка на просроченность карты
+                if($result->expiration_date>date("Y-m-d H:i:s")){
+                    $result->status=2;
+                    $result->save();
+                }
                 if($result->status==1) {
                     $card_id = $result->id;
                     $purchase = new Purchases();

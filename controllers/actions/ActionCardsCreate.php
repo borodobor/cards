@@ -16,24 +16,29 @@ trait ActionCardsCreate{
             }
             $success=0;
             $series=$post['Cards']['series'];
-            $number=$post['Cards']['number'];
-            if(Cards::find()->where("`series`='$series' and `number`=$number")->exists()){
-                $success=2;
+            if(preg_match('/[a-z0-9]{3,}/',$series)) {
+                $number = $post['Cards']['number'];
+                if (Cards::find()->where("`series`='$series' and `number`=$number")->exists()) {
+                    $success = 2;
+                    $card = new Cards();
+                    return $this->render('cardscreate', ['card' => $card, 'success' => $success]);
+                }
+                if ($post['Cards']['status'] == 1) {
+                    $status = 1;
+                } else $status = 0;
+                $card = new Cards();
+                $card->series = $series;
+                $card->number = $number;
+                $card->create_date = date("Y-m-d H:i:s");
+                $card->expiration_date = date("Y-m-d H:i:s", strtotime("+$period month"));
+                $card->amount = 0;
+                $card->status = $status;
+                if ($card->save()) {
+                    $success = 1;
+                }
+            }else{
                 $card=new Cards();
-                return $this->render('cardscreate', ['card' => $card, 'success' => $success]);
-            }
-            if($post['Cards']['status']==1) {
-                $status=1;
-            }else $status=0;
-            $card = new Cards();
-            $card->series = $series;
-            $card->number = $number;
-            $card->create_date = date("Y-m-d H:i:s");
-            $card->expiration_date = date("Y-m-d H:i:s", strtotime("+$period month"));
-            $card->amount = 0;
-            $card->status = $status;
-            if ($card->save()) {
-                $success = 1;
+                $success=3;
             }
             return $this->render('cardscreate', ['card' => $card, 'success' => $success]);
         }else{

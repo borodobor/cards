@@ -23,10 +23,16 @@ trait ActionUpdate
             if($post==[]) {
                 return $this->render('update', ['card' => $card]);
             }else{
-                $success=0;
                 // Если статус поставили как просроченный, то меняем просто на неактивный
-                if($post['Cards']['status']==2) $post['Cards']['status']=0;
+                if($post['Cards']['status']==2) {
+                    $post['Cards']['status']=0;
+                }
+                $success=0;
                 $card->load($post);
+                // проверка на просроченность карты
+                if($card->expiration_date>date("Y-m-d H:i:s")){
+                    $card->status=2;
+                }
                 if($card->save()){
                     $success=1;
                 }

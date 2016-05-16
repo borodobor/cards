@@ -7,7 +7,6 @@ use yii\data\ActiveDataProvider;
 
 trait ActionCardsView{
     public function actionCardsview(){
-        
 
         $cards=new ActiveDataProvider([
             'query' => Cards::find(),
