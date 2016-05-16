@@ -1,5 +1,15 @@
 <?php
 use yii\grid\GridView;
+if(isset($success)) {
+    if ($success === 0) {
+        echo 'Не указана серия или номер карты';
+        die();
+    } elseif ($success == 2) {
+        echo 'Карт с указанными серией и номером не найдено';
+        die();
+    }
+}
+echo '<a href="/site/update?id='.$id.'">Редактировать карту</a>';
 $status='<span style="color:red;">неактивна</span>';
 if($card->status==1) $status='<span style="color:green;">активна</span>';
 else if($card->status==2) $status='<span style="color:darkblue;">просрочена</span>';
@@ -14,9 +24,8 @@ if($card->amount==0){
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'id',
-            'purchases.purchase_date',
-            'purchases.price',
-            ['class' => 'yii\grid\ActionColumn'],
+            'purchase_date',
+            'price',
         ],
     ]);
 }

@@ -4,50 +4,42 @@
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<div style="width: 50%;float: left;">
+        <div style="margin-bottom: 30px">
+        <a href="generator.php">Генератор карт</a><br/>
+        <a href="cardscreate.php">Создать одну карту</a><br/>
+        <a href="cardsview.php">Просмотр всех карт, поиск по ним</a><br/>
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+    <div>
+        Просмотр информации по карте:
+        <form action="/site/view" method="post">
+            <input type="hidden" name="_csrf" value="<?=Yii::$app->getRequest()->getCsrfToken()?>">
+            <label class="control-label">
+                Серия: <input type="text" name="series" maxlength="3" class="form-control" style="width: 100px"/>
+            </label>
+            <label class="control-label">
+                Номер: <input type="number" name="number"  min="1" max="999999" class="form-control"  style="width: 200px"/>
+            </label><br/>
+            <input class="btn btn-primary" type="submit" value="Искать" style="">
+        </form>
+    </div>
+</div>
+<div style="width: 50%;float: right">
+    Сделать покупку:<br/>
+    <form action="/site/purchase" method="post">
+        <input type="hidden" name="_csrf" value="<?=Yii::$app->getRequest()->getCsrfToken()?>">
+        <div>
+            Данные карты для оплаты покупки<br/>
+            <label class="control-label">
+                Серия: <input type="text" name="series" maxlength="3" class="form-control" style="width: 100px"/>
+            </label>
+            <label class="control-label">
+                Номер: <input type="number" name="number"  min="1" max="999999" class="form-control"  style="width: 200px"/>
+            </label><br/>
         </div>
-
-    </div>
+        <label class="control-label">
+            Стоимость покупки <input type="number" name="price"  min="1" class="form-control"/>
+        </label><br/>
+        <input class="btn btn-primary" type="submit" value="Искать" style="">
+    </form>
 </div>

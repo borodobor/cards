@@ -40,6 +40,8 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'На главную', 'url' => ['/site/index']],
             ['label' => 'Просмотр карт', 'url' => ['/site/cardsview']],
+            ['label' => 'Генератор карт', 'url' => ['/site/generator']],
+            ['label' => 'Создать карту', 'url' => ['/site/cardscreate']],
             ['label' => 'Просмотр покупок', 'url' => ['/site/purchasesview']],
         ],
     ]);

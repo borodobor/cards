@@ -12,7 +12,7 @@ trait ActionCardsView{
         $cards=new ActiveDataProvider([
             'query' => Cards::find(),
             'pagination' => [
-                'pageSize' => 20,
+                'pageSize' => 50,
             ],
         ]);
 

@@ -7,7 +7,7 @@ use dosamigos\datetimepicker\DateTimePicker;
     <form method="post">
         <input type="hidden" name="_csrf" value="<?=Yii::$app->getRequest()->getCsrfToken()?>">
         <label class="control-label">
-Серия: <input type="text" name="series" class="form-control"/>
+Серия: <input type="text" name="series" maxlength="3" class="form-control"/>
         </label>
         <label class="control-label">
 Номер: <input type="number" name="number"  min="1" max="999999" class="form-control"/>

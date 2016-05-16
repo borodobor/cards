@@ -17,7 +17,7 @@ trait ActionCardsCreate{
             $success=0;
             $series=$post['Cards']['series'];
             $number=$post['Cards']['number'];
-            if(Cards::find()->where(['series' => $series] and ['number'=>$number])->exists()){
+            if(Cards::find()->where("`series`='$series' and `number`=$number")->exists()){
                 $success=2;
                 $card=new Cards();
                 return $this->render('cardscreate', ['card' => $card, 'success' => $success]);
